@@ -1,0 +1,10 @@
+{% extends "pro1/base.html"%}
+{% block content %}
+	
+	{% for i in anekdota %}
+		<h3>id :{{i.icon_url}}</h3>
+		<h4>picture url :{{i.id}}</h4>
+		<p>{{i.value}}</p>
+	{% endfor %}
+
+{%endblock content %}
