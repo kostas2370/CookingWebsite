@@ -1,19 +1,21 @@
 import requests
 from django.shortcuts import render
 
-url="https://api.chucknorris.io/jokes/random"
+
 
 def ask1(request):
-	cringe_memes=[]
+	url="http://www.themealdb.com/api/json/v1/1/random.php"
+	syntages=[]
 	for i in range(5):
 		response = requests.get(url)
-		x= response.json()
-		cringe_memes.append(x)
+		x=response.json()["meals"][0]
+		syntages.append(x)
+		
 	
 	context={
-		'anekdota':cringe_memes
+		'syntages':syntages
 	}
-	
+
 	return render(request,"pro1/ask1.html",context)
 
 def ask2(request):

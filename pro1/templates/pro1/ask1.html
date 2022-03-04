@@ -1,10 +1,10 @@
 {% extends "pro1/base.html"%}
 {% block content %}
-	<center><h1>Random Chuck Norris Jokes</h1></center>
-	{% for i in anekdota %}
-		<h3>id :{{i.icon_url}}</h3>
-		<h4>picture url :{{i.id}}</h4>
-		<p>{{i.value}}</p>
+	<center><h1>Random Food Recipe</h1></center>
+	{% for i in syntages %}
+		<h3 style="color: red;">Meal : {{i.strMeal}}</h3>
+		<h4>Category : {{i.strCategory}}</h4>
+		<p>instructions : {{i.strInstructions}}</p>
 	{% endfor %}
 
 {%endblock content %}
