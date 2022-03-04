@@ -1,19 +1,14 @@
 import requests
 from django.shortcuts import render
-
-
-
+from .models import Recipe
+import random
+def get_random():
+   		return Recipe.objects.order_by("?").first()
 def ask1(request):
-	url="http://www.themealdb.com/api/json/v1/1/random.php"
-	syntages=[]
-	for i in range(5):
-		response = requests.get(url)
-		x=response.json()["meals"][0]
-		syntages.append(x)
-		
+	
 	
 	context={
-		'syntages':syntages
+		'syntages':[get_random()]
 	}
 
 	return render(request,"pro1/ask1.html",context)

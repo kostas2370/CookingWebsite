@@ -2,10 +2,24 @@
 {% block content %}
 	<br><br><br>
 	<h2>Random Recipies :</h2>
+	{% if user.is_authenticated %}
+		<button onClick="window.location.reload();">Random Recipe</button>
+	{% else %}
+		
+		<button onclick="location.href='/login'">Add Recipe</button>
+		<button onclick="location.href='/register'">Add Recipe</button>
+	{% endif %}
 	{% for i in syntages %}
-		<h3 style="color: red;">Meal : {{i.strMeal}}</h3>
-		<h4>Category : {{i.strCategory}}</h4>
-		<p>instructions : {{i.strInstructions}}</p>
+		<h3 style="color: red;">Meal : {{i.food_name}}</h3>
+		
+
+		<h4>Category : {{i.category}}</h4>
+		<h5>Maker : {{i.maker}}</h5>
+		<h5>Ingridients :</h5>
+		
+		<p>{{i.ingridients}}</p>
+		<h5>instructions :</h5>		
+		<p> {{i.content}}</p>
 	{% endfor %}
 
 {%endblock content %}
