@@ -9,5 +9,4 @@ class Recipe (models.Model):
 	content=models.TextField()
 	maker=models.ForeignKey(User,on_delete=models.CASCADE)
 	ingridients=models.TextField(default='0000000')
-	def get_random():
-   		return Recipe.objects.order_by("?").first()
+	
