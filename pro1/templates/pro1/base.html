@@ -23,8 +23,15 @@
           				<a class="nav-item nav-link" href="/contact">Contact</a>	
         			</div>
         			<div class="navbar-nav">
-              	<a class="nav-item nav-link" href="">Login</a>
-              	<a class="nav-item nav-link" href="/register">Register</a>
+              	
+        				{% if user.is_authenticated %}
+            			<a class="nav-item nav-link" href="/logout">Logout</a>
+              		<a class="nav-item nav-link" href="">Profile</a>
+
+            		{% else %}
+            		  <a class="nav-item nav-link" href="/login">Login</a>
+              		<a class="nav-item nav-link" href="/register">Register</a>
+              	{% endif %}
             	</div>
 			</div>
 		</nav>
