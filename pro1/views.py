@@ -15,3 +15,6 @@ def ask1(request):
 
 def ask2(request):
 	return render(request,"pro1/ask2.html")
+
+def contact(request):
+	return render(request,"pro1/contact.html")
