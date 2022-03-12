@@ -20,3 +20,4 @@ class UpdateProfileForm(forms.ModelForm):
 	class Meta :
 		model=profile
 		fields= ["description","image"]
+		

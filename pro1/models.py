@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class Recipe (models.Model):
 	food_name=models.CharField(max_length=50)
@@ -10,3 +10,6 @@ class Recipe (models.Model):
 	maker=models.ForeignKey(User,on_delete=models.CASCADE)
 	ingridients=models.TextField(default='0000000')
 	
+
+	def get_absolute_url(self):
+		return reverse("recipe-detail", kwargs={"pk":self.pk})

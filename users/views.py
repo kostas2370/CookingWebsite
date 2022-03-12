@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegisterForm,UpdateUserForm,UpdateProfileForm
+from django.views.generic import DetailView
+from django.contrib.auth.models import User
+
 def register(request):
 	if request.method=="POST":
 		form=UserRegisterForm(request.POST)
@@ -39,3 +42,10 @@ def settings(request):
 	}
 
 	return render(request,"users/settings.html",context)
+
+
+class UserDetailView(DetailView):
+	model= User
+	template_name="users/users.html"
+
+

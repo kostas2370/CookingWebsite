@@ -1,0 +1,21 @@
+{% extends "pro1/base.html"%}
+
+
+{% block content %}
+	
+	
+
+	
+		<h3 style="color: red;">Meal : {{ object.food_name }}</h3>
+		
+
+		<h4>Category : {{ object.category }}</h4>
+		<a href="{% url 'profile-view' object.maker.id%}"><h5>Maker : {{ object.maker }}</h5></a>
+		<h5>Ingridients :</h5>
+		
+		<p>{{ object.ingridients }}</p>
+		<h5>instructions :</h5>		
+		<p> {{ object.content }}</p>
+	
+
+{%endblock content %}

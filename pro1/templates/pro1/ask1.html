@@ -1,25 +1,12 @@
+
 {% extends "pro1/base.html"%}
 {% block content %}
-	
-	<h2>Random Recipies :</h2>
-	{% if user.is_authenticated %}
-		<button onClick="window.location.reload();">Random Recipe</button>
-	{% else %}
-		
-		<button onclick="location.href='/login'">Add Recipe</button>
-		<button onclick="location.href='/register'">Add Recipe</button>
-	{% endif %}
-	{% for i in syntages %}
-		<h3 style="color: red;">Meal : {{i.food_name}}</h3>
-		
 
+	{% for i in syntages %}
+		<a href="recipe/{{ i.id }}"><h3 style="color: red;">Meal : {{i.food_name}}</h3></a>
 		<h4>Category : {{i.category}}</h4>
-		<h5>Maker : {{i.maker}}</h5>
-		<h5>Ingridients :</h5>
-		
-		<p>{{i.ingridients}}</p>
-		<h5>instructions :</h5>		
-		<p> {{i.content}}</p>
+		<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
+
 	{% endfor %}
 
 {%endblock content %}
