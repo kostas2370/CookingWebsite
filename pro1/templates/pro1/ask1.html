@@ -8,5 +8,9 @@
 		<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
 
 	{% endfor %}
-
+		{% if user.is_authenticated %}
+		<a href="{% url 'recipe-new' %}"><button>Add new recipe</button></a>
+		{% else %}
+		<a href="{% url 'login' %}"><button>Login to upload your recipe</button></a>	
+		{% endif %}
 {%endblock content %}
