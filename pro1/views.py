@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Recipe,comments
 from django.views.generic import ListView,DetailView,CreateView
 from .forms import recipe,comment_form
@@ -29,6 +29,7 @@ class RecipesDetailView(DetailView):
                                   commenter=self.request.user,
                                   post=self.get_object())
         new_comment.save()
+     
         return self.get(self, request, *args, **kwargs)     
 
 class RecipeCreateView(CreateView):
