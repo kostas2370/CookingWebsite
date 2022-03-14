@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from .models import Recipe,comments
 from django.views.generic import ListView,DetailView,CreateView
 from .forms import recipe,comment_form
+from django.http import HttpResponseRedirect
 
 class RecipesListView(ListView):
     model= Recipe
@@ -29,8 +30,8 @@ class RecipesDetailView(DetailView):
                                   commenter=self.request.user,
                                   post=self.get_object())
         new_comment.save()
-     
-        return self.get(self, request, *args, **kwargs)     
+     	
+        return HttpResponseRedirect(self.request.path_info)     
 
 class RecipeCreateView(CreateView):
     model= Recipe

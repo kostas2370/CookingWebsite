@@ -3,17 +3,19 @@
 
 	
 {% block content %}
-	<div class="container pt-3 my-3 ">
+	<div class="container pt-3 my-3 kekw ">
 	<h2>Latest posts :</h2>
 	{% for i in syntages %}
-			<div class="container pt-3 my-3 border cont2">
-		
-				<div class=" mt-3">
-				<a href="recipe/{{ i.id }}"><h3 class="meal">Meal : {{i.food_name}}</h3></a>
-				<h4>Category : {{i.category}}</h4>
-				<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
-				<a href="recipe/{{ i.id }}"><button class="btn btn-primary" id="read">Read more</button>
-			</div>
+			<a href="recipe/{{ i.id }}"><img src="{{ i.image.url }}" class="img left food_menu left"></a>
+			<div class="container pt-4 my-3 border cont2">
+				
+				<div class=" mt-3 right kekw">
+					
+					<a href="recipe/{{ i.id }}"><h3 class="meal">Meal : {{i.food_name}}</h3></a>
+					<h4>Category : {{i.category}}</h4>
+					<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
+					<a href="recipe/{{ i.id }}"><button class="btn btn-primary" id="read">Read more</button></a>
+				</div>
 			</div>
 	{% endfor %}
 		{% if user.is_authenticated %}

@@ -10,19 +10,28 @@
 				
 			</fieldset>
 			<div class="form-group">
-				<button class="btn btn-outline-info" type="submit">Add comment</button>
+				<a href=""><button class="btn btn-outline-info" type="submit">Add comment</button></a>
 			</div>
 		</form>
 		 {% else %}
 		 	<a href="{% url 'login' %}"><button>Login to comment</button></a>
 		 {% endif %}	
 
-		<h3>Comments :</h3>
-		<ul>
-		{% for x in comments %}
-			<li>{{ x.commenter }} : {{x.comment}}</li>	
+		
+		{% if comments %}
+			<h3>Comments :</h3>
+			{% for x in comments %}
+				</br>
+				<div class="row border comment">
+					
+						<img src="{{x.commenter.profile.image.url}}" class=" comm_img img-fluid" alt="lay" >
+						<p class="secondary ">  &ensp; {{ x.commenter }} : {{x.comment}}</p></li>	
+				
+				</div>
+			
+			
 		{% endfor %}
-		</ul>
+		{% endif %}
 
 	
 {% endblock comments %}

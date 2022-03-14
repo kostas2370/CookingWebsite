@@ -5,3 +5,29 @@
 .meal{
 	color: gray;
 }
+
+.comm_img{
+  max-width: 5%;
+  height:5%;
+
+}
+
+.comment{
+	background-color: lightblue;
+	border-width: thick;
+
+}
+
+.food_menu{
+  float: left;	
+  width: 275px;
+  height:183px;
+  margin-bottom: 15px;
+  margin-top: 8px;
+}
+
+.texts{
+	float: right;
+}
+
+
