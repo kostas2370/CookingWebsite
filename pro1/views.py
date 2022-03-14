@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render
 from .models import Recipe
 from django.views.generic import ListView,DetailView,CreateView
-
+from .forms import recipe
 
 class RecipesListView(ListView):
 	model= Recipe
@@ -17,8 +17,9 @@ class RecipesDetailView(DetailView):
 
 class RecipeCreateView(CreateView):
 	model= Recipe
-	fields= ["food_name","category","content","ingridients"]
+	
 	template_name="pro1/syntagh_new.html"
+	form_class = recipe
 	def form_valid(self,form):
 		form.instance.maker = self.request.user
 		return super().form_valid(form)
