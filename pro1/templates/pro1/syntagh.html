@@ -1,5 +1,5 @@
-{% extends "pro1/base.html"%}
-
+{% extends "pro1/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 	
@@ -17,6 +17,8 @@
 		<h5>instructions :</h5>		
 		<p> {{ object.content }}</p>
 		<img class="img" src="{{ object.image.url  }}">	
-		
+		{% block comments %}
+			{% include "pro1/comment.html" %}
 
+		{% endblock comments %}
 {%endblock content %}

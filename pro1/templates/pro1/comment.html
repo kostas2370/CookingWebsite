@@ -1,0 +1,23 @@
+
+{% load crispy_forms_tags %}
+{% block comments %}
+		<h3>Comments :</h3>
+		<ul>
+		{% for x in comments %}
+			<li>{{ x.commenter }} : {{x.comment}}</li>	
+		{% endfor %}
+		</ul>
+
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Add comment :</legend>
+					{{form|crispy}}
+				
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit">Add comment</button>
+			</div>
+		</form>
+	
+{% endblock comments %}

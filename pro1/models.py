@@ -22,3 +22,9 @@ class Recipe (models.Model):
 			outputsize=(1280,720)
 			img.thumbnail(outputsize)
 			img.save(self.image.path)
+
+class comments(models.Model):
+	post=models.ForeignKey(Recipe,on_delete=models.CASCADE)
+	commenter=models.ForeignKey(User,on_delete=models.CASCADE)
+	comment=models.CharField(max_length=200)
+	
