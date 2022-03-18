@@ -2,7 +2,7 @@ from django import forms
 from .models import Recipe,comments
 choices	=(("Desert","Desert"),("fastfood","fastfood"),("meat","meat"))
 class recipe(forms.ModelForm):
-	category=forms.ChoiceField(choices=choices)
+	
 	food_name=forms.CharField(max_length=50)
 	
 	

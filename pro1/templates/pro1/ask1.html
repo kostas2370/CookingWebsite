@@ -3,25 +3,59 @@
 
 	
 {% block content %}
+	
 	<div class="container pt-3 my-3 kekw ">
 	<h2>Latest posts :</h2>
+	
 	{% for i in syntages %}
-			<a href="recipe/{{ i.id }}"><img src="{{ i.image.url }}" class="img left food_menu left"></a>
-			<div class="container pt-4 my-3 border cont2">
+		<div class="box1 container ">
+				<div class="col-md-5 food_menu">
+					<div class="thumbnail">
+							<a href="recipe/{{ i.id }}"><img src="{{ i.image.url }}" class="img left food_menu  img-thumbnail img-responsive mx-auto d-block"></a>
+					</div>
+				</div>
+				<div class="container pt-4 my-3 border cont2">
 				
-				<div class=" mt-3 right kekw">
+				<div class=" mt-3 right kekw text-nowrap text-truncate">
 					
 					<a href="recipe/{{ i.id }}"><h3 class="meal">Meal : {{i.food_name}}</h3></a>
-					<h4>Category : {{i.category}}</h4>
+					<h4>Category : {{i.category.category}}</h4>
 					<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
 					<a href="recipe/{{ i.id }}"><button class="btn btn-primary" id="read">Read more</button></a>
 				</div>
 			</div>
+		</div>
+	
+
+
 	{% endfor %}
+
+	<center>
 		{% if user.is_authenticated %}
-		<a href="{% url 'recipe-new' %}"><button>Add new recipe</button></a>
+				<a href="{% url 'recipe-new' %}"><button class="btn btn-outline-primary">Add new recipe</button></a>
 		{% else %}
-		<a href="{% url 'login' %}"><button>Login to upload your recipe</button></a>	
+		<a href="{% url 'login' %}"><button class="btn btn-outline-secondary"> Login to upload your recipe</button></a>	
 		{% endif %}
+		</br></br>
+		{% if is_paginated %}
+				{% if page_obj.has_previous %}	
+						<a class="btn btn-outline-info	mb-4" href="?page=1">First</a>
+						<a class="btn btn-outline-info	mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+				{%endif%}	
+  				{% for num in page_obj.paginator.page_range %}
+  	    				{% if page_obj.number == num %}
+  	      						<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+  	   					{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+  	      						<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+  	    				{% endif %}
+  	  			{% endfor %}
+				{% if page_obj.has_next %}	
+						<a class="btn btn-outline-info	mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+						<a class="btn btn-outline-info	mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+				{%endif%}
+			{%endif%}	
+		</center>
+			
+		
 	</div>
 {%endblock content %}

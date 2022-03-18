@@ -10,7 +10,7 @@ class RecipesListView(ListView):
     template_name="pro1/ask1.html"
     context_object_name ="syntages"
     ordering=['-id']
-
+    paginate_by=3    
 class RecipesDetailView(DetailView):
     
     model= Recipe

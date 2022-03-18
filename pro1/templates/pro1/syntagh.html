@@ -9,7 +9,7 @@
 		<h3 style="color: red;">Meal : {{ object.food_name }}</h3>
 		
 
-		<h4>Category : {{ object.category }}</h4>
+		<h4>Category : {{ object.category.category }}</h4>
 		<a href="{% url 'profile-view' object.maker.id%}"><h5>Maker : {{ object.maker }}</h5></a>
 		<h5>Ingridients :</h5>
 		

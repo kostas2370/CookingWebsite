@@ -1,6 +1,7 @@
 
 {% load crispy_forms_tags %}
 {% block comments %}
+
 		{% if user.is_authenticated %}
 		<form method="POST" enctype="multipart/form-data">
 			{% csrf_token %}
@@ -10,11 +11,12 @@
 				
 			</fieldset>
 			<div class="form-group">
-				<a href=""><button class="btn btn-outline-info" type="submit">Add comment</button></a>
-			</div>
+				<button class="btn btn-outline-info" type="submit">Add comment</button>
 		</form>
 		 {% else %}
-		 	<a href="{% url 'login' %}"><button>Login to comment</button></a>
+		 	
+		 	<center></br></br><a href="{% url 'login' %}"><button class="btn btn-outline-secondary" >Login to comment
+		 	</button></a></center></br></br>
 		 {% endif %}	
 
 		
@@ -25,7 +27,7 @@
 				<div class="row border comment">
 					
 						<img src="{{x.commenter.profile.image.url}}" class=" comm_img img-fluid" alt="lay" >
-						<p class="secondary ">  &ensp; {{ x.commenter }} : {{x.comment}}</p></li>	
+						<a href="{%	url 'profile-view' x.commenter.id	%}"><p class="secondary ">  &ensp; {{ x.commenter }}</a> : {{x.comment}}</p>
 				
 				</div>
 			
