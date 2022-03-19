@@ -12,11 +12,16 @@
 		<h4>Category : {{ object.category.category }}</h4>
 		<a href="{% url 'profile-view' object.maker.id%}"><h5>Maker : {{ object.maker }}</h5></a>
 		<h5>Ingridients :</h5>
+		<div class="container bg-light ">
+			<p class="">{{ object.ingridients|linebreaks }}</p>
+		</div>
 		
-		<p>{{ object.ingridients|linebreaks }}</p>
-		<h5>instructions :</h5>		
-		 <p>{{ object.content|linebreaks}}</p>
-		<img class="img in_recipe" src="{{ object.image.url  }}">	
+		<h5>Instructions :</h5>		
+		<div class="container bg-light">
+		 	<p>{{ object.content|linebreaks}}</p>
+			<img class="img in_recipe" src="{{ object.image.url  }}">
+		</div>
+			
 		
 		{% block comments %}
 			{% include "pro1/comment.html" %}
