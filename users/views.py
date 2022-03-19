@@ -6,6 +6,7 @@ from django.views.generic import DetailView,ListView
 from django.contrib.auth.models import User
 from pro1.models import Recipe 
 from django.core.paginator import Paginator
+
 def register(request):
 	if request.method=="POST":
 		form=UserRegisterForm(request.POST)
