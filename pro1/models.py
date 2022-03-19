@@ -14,7 +14,8 @@ class Recipe (models.Model):
 	maker=models.ForeignKey(User,on_delete=models.CASCADE)
 	ingridients=models.TextField(default='0000000')
 	image=models.ImageField(default="default_food.jpg",upload_to="food",blank=True)		
-
+	def	__str__(self):	
+			return	self.food_name
 	def get_absolute_url(self):
 		return reverse("recipe-detail", kwargs={"pk":self.pk})
 
@@ -30,4 +31,5 @@ class comments(models.Model):
 	post=models.ForeignKey(Recipe,on_delete=models.CASCADE)
 	commenter=models.ForeignKey(User,on_delete=models.CASCADE)
 	comment=models.CharField(max_length=200)
-
+	def __str__(self):
+		return f"{self.post} : {self.commenter} : {self.comment[0:4]}..."

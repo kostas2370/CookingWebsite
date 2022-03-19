@@ -82,7 +82,7 @@ height: 	170px;
               	
         				{% if user.is_authenticated %}
             			<a class="nav-item nav-link" href="/logout">Logout</a>
-              		<a class="nav-item nav-link" href="/myprofile">Profile</a>
+              		<a class="nav-item nav-link" href="{% url 'profile-view' request.user.id %}">Profile</a>
               		<a class="nav-item nav-link" href="/settings">Settings</a>
             		{% else %}
             		  <a class="nav-item nav-link" href="/login">Login</a>

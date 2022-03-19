@@ -11,8 +11,36 @@
           <p class="text-center">{{ object.profile.description }}</p>
         </div>
       </div>
+      <div class="posts">
+     {% if syntages %}  
+    <h1>Posts :</h1>
+    {% for i in syntages %}
 
+    <div class="box1 container ">
+        <div class="col-md-5 food_menu">
+          <div class="thumbnail">
+              <a href="recipe/{{ i.id }}"><img src="{{ i.image.url }}" class="img left food_menu  img-thumbnail img-responsive mx-auto d-block"></a>
+          </div>
+        </div>
+        <div class="container pt-4 my-3 border cont2">
+        
+        <div class=" mt-3 right kekw text-nowrap text-truncate">
+          
+          <a href="{% url 'recipe-detail' i.id %}"><h3 class="meal">Meal : {{i.food_name}}</h3></a>
+          <h4>Category : {{i.category.category}}</h4>
+          
+          <a href="{% url 'recipe-detail' i.id %}"><button class="btn btn-primary" id="read">Read more</button></a>
+       
+        </div>
+      </div>
+       
     </div>
+       {% endfor %}
+       {% endif %}
+
+      </div>
+    </div>
+
 
 
 {%endblock content %}
