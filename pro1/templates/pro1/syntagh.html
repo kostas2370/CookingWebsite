@@ -15,7 +15,7 @@
 		
 		<p>{{ object.ingridients|linebreaks }}</p>
 		<h5>instructions :</h5>		
-		 <p>{{ object.content|linebreaks|markdown}}</p>
+		 <p>{{ object.content|linebreaks}}</p>
 		<img class="img in_recipe" src="{{ object.image.url  }}">	
 		
 		{% block comments %}
