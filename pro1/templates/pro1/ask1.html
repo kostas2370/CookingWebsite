@@ -21,7 +21,11 @@
 					<a href="recipe/{{ i.id }}"><h3 class="meal">Meal : {{i.food_name}}</h3></a>
 					<h4>Category : {{i.category.category}}</h4>
 					<a href="profile/{{ i.maker.id }}"><h5>Maker : {{i.maker}}</h5></a>
-					<a href="recipe/{{ i.id }}"><button class="btn btn-primary" id="read">Read more</button></a>
+					<a href="recipe/{{ i.id }}"><button class="btn btn-primary" id="read">Read more</button></a>		
+					{% if i.maker.id == user.id %}
+					
+					<a href="{% url 'recipe-update' i.id%}"><button class="btn btn-primary 	" type="submit" >Update</button>	</a>
+		{% endif %}
 				</div>
 			</div>
 		</div>

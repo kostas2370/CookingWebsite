@@ -1,10 +1,10 @@
 import requests
 from django.shortcuts import render,redirect
 from .models import Recipe,comments
-from django.views.generic import ListView,DetailView,CreateView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView
 from .forms import recipe,comment_form
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 class RecipesListView(ListView):
     model= Recipe
     template_name="pro1/ask1.html"
@@ -40,6 +40,18 @@ class RecipeCreateView(CreateView):
     def form_valid(self,form):
         form.instance.maker = self.request.user
         return super().form_valid(form)
+
+class RecipeUpdateView(UpdateView,LoginRequiredMixin,UserPassesTestMixin):
+    model= Recipe
+    template_name="pro1/syntagh_update.html"
+    fields=["food_name","category","content","ingridients","image"]
+    
+    def form_valid(self, form):
+        form.instance.maker = self.request.user
+        return super().form_valid(form)
+
+    
+  
 
 
         
