@@ -1,7 +1,7 @@
 import requests
 from django.shortcuts import render,redirect
 from .models import Recipe,comments
-from django.views.generic import ListView,DetailView,CreateView,UpdateView
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from .forms import recipe,comment_form
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -50,8 +50,11 @@ class RecipeUpdateView(UpdateView,LoginRequiredMixin,UserPassesTestMixin):
         form.instance.maker = self.request.user
         return super().form_valid(form)
 
-    
-  
+
+class RecipeDeleteView(DeleteView,LoginRequiredMixin,UserPassesTestMixin):
+    model=Recipe
+    template_name="pro1/syntagh_delete.html"
+    success_url = '/'
 
 
         

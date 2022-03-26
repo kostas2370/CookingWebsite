@@ -33,6 +33,9 @@
           {% if i.maker.id == user.id %}
           
           <a href="{% url 'recipe-update' i.id%}"><button class="btn btn-primary  " type="submit" >Update</button>  </a>
+          
+          <a href="{% url 'recipe-delete' i.id%}"><button class="btn btn-primary  " type="submit" >Delete</button>  </a>
+          
           {% endif %}
        
         </div>

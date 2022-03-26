@@ -23,6 +23,9 @@
 			{% if object.maker.id == user.id %}
 					</br>	</br>		
 					<a href="{% url 'recipe-update' object.id%}"><button class="btn btn-outline-info 	mb-4" type="submit" >Update</button>	</a>
+					
+					<a href="{% url 'recipe-delete' object.id%}"><button class="btn btn-outline-info mb-4" type="submit" >Delete</button>	</a>
+					
 		{% endif %}
 		</div>
 
