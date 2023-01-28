@@ -29,7 +29,7 @@ My name is Kostas Damianos and I am a developer from Greece. I have a passion fo
 
 I have used my expertise in Python Django, CSS, HTML, Bootstrap, SQLite, Django-storage, django-crispy-forms, and Pillow to create this application. I believe that the combination of these technologies provides a powerful and robust solution for building a cooking blog.
 
-If you want to get in touch or follow my latest updates, you can follow me on [Github](https://github.com/kostas2370) or [LinkedIn]([https://www.linkedin.com/in/kostas-damianos-5bb058115/](https://www.linkedin.com/in/konstantinos-damianos-5bb058115/))
+If you want to get in touch or follow my latest updates, you can follow me on [Github](https://github.com/kostas2370) or [LinkedIn]([https://www.linkedin.com/in/kostas-damianos-5bb058115/](https://www.linkedin.com/in/konstantinos-damianos-5bb058115/)
 
 Thank you for choosing My Cooking App!
 
